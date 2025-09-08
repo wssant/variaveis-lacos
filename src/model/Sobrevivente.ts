@@ -1,4 +1,4 @@
-export class Kits {
+export abstract class Sobrevivente {
     private _nome: string
     private _sexo: string
     private _tipo: number
@@ -7,8 +7,8 @@ export class Kits {
     
     
 
-    constructor(sobrevivente: string, sexo:string, alimentos: number, armas: number, tipo:number){
-        this._nome = sobrevivente
+    constructor(nome: string, sexo:string, alimentos: number, armas: number, tipo:number){
+        this._nome = nome
         this._sexo = sexo
         this._alimentos = alimentos
         this._armas = armas
@@ -23,10 +23,6 @@ export class Kits {
     public set nome(nome:string) {
         this._nome = nome;
     }
-    
-    public get tipo() {
-        return this._tipo;
-    }
 
     public get sexo() {
         return this._sexo;
@@ -34,6 +30,10 @@ export class Kits {
 
     public set sexo(sexo: string) {
         this._sexo = sexo;
+    }
+
+    public get tipo(){
+        return this._tipo
     }
     
     public set tipo(tipo:number) {
@@ -56,18 +56,17 @@ export class Kits {
     public set armas(armas:number) {
         this._armas = armas;
     }
-    
 
     public visualizar(): void {
 
         let tipo: string = "";
 
-        switch (this._sexo) {
-            case "1":
+        switch (this._tipo) {
+            case 1:
                 tipo = "Lenhador";
                 break;
 
-            case "2":
+            case 2:
                 tipo = "Médico"
                 break;
 

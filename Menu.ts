@@ -1,9 +1,18 @@
 import readlinesync = require("readline-sync")
 import { colors } from './src/util/Colors';
-import { Kits } from './src/model/Kits';
+import { Sobrevivente } from './src/model/Sobrevivente';
+import { KitLenhador } from "./src/model/KitLenhador";
+import { KitMedico } from "./src/model/KitMedico";
 
 export function main() {
     let opcao: number;
+
+    const kitlenhador: KitLenhador = new KitLenhador('João', 'Masculino', 1, 1, 1, 'Machado')
+    kitlenhador.visualizar();
+
+    const kitmedico: KitMedico = new KitMedico('Firmina', 'Feminino', 3, 1, 2, 'Bisturi')
+    kitmedico.visualizar();
+    
 
     while (true) {
 
