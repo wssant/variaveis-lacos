@@ -1,11 +1,13 @@
 import readlinesync = require("readline-sync")
+import { colors } from './src/util/Colors';
+import { Kits } from './src/model/Kits';
 
 export function main() {
     let opcao: number;
 
     while (true) {
 
-        console.log("************************************")
+        console.log(colors.bg.black, colors.fg.greenstrong,"***************************************************")
 
         console.log("*****************************************************");
         console.log("                                                     ");
@@ -15,10 +17,10 @@ export function main() {
         console.log("                                                     ");
         console.log("            1 - Criar Sobrevivente                   ");
         console.log("            2 - Listar todos os Sobreviventes        ");
-        console.log("            3 - Buscar Sobreviventes por Numero      ");
+        console.log("            3 - Buscar Sobreviventes por Nome        ");
         console.log("            4 - Atualizar Inventário do Sobrevivente ");
         console.log("            5 - Apagar Sobrevivente                  ");
-        console.log("            6 - Sair                                 ")               
+        console.log("            6 - Sair                                 ",colors.reset)               
 
         console.log("Entre com a opção desejada: ");
         opcao = readlinesync.questionInt("");
@@ -39,7 +41,7 @@ export function main() {
 
                 break;
             case 3:
-                console.log("\n\nConsultar Sobreviventes por Numero\n\n");
+                console.log("\n\nConsultar Sobreviventes por Nome\n\n");
 
                 break;
             case 4:
@@ -68,11 +70,11 @@ export function main() {
 }
 
 export function sobre(): void {
-console.log("\n*****************************************************");
+console.log(colors.bg.black, colors.fg.greenstrong,"\n*****************************************************");
 console.log("Projeto Desenvolvido por: Winnie Sant'Ana ");
 console.log("Generation Brasil - winnies@genstudents.org");
 console.log("https://github.com/wssant/Conta_bancaria_Generation");
-console.log("*****************************************************")
+console.log("*****************************************************",colors.reset)
 
 }
 main();
