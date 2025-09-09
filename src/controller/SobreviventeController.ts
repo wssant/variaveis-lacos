@@ -6,21 +6,32 @@ export class SobreviventeController implements SobreviventeRepository {
     numero: number = 0
 
     procurarPorNome(nome: string): void {
-        for (let sobrevivente of this.listaSobreviventes){
-            sobrevivente.visualizar();
+        for (let sobreviventes of this.listaSobreviventes){
+            sobreviventes.visualizar();
         }
     }
+    
     listarTodas(): void {
-        throw new Error("Method not implemented.");
+        for (let sobreviventes of this.listaSobreviventes) {
+            sobreviventes.visualizar();
+        }
+        
+        
     }
-    cadastrar(nome: string): void {
-        throw new Error("Method not implemented.");
+    cadastrar(sobreviventes: Sobrevivente): void {
+        this.listaSobreviventes.push(sobreviventes);
+        console.log(` Sobrevivente ${sobreviventes.nome} cadastrado com sucesso!`);
+        
     }
     atualizar(nome: string): void {
-        throw new Error("Method not implemented.");
+        
     }
     apagar(nome: string): void {
-        throw new Error("Method not implemented.");
+        
+    }
+
+    public gerarNumero(): number{
+        return ++ this.numero;
     }
     
 }

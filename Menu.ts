@@ -3,8 +3,11 @@ import { colors } from './src/util/Colors';
 import { Sobrevivente } from './src/model/Sobrevivente';
 import { KitLenhador } from "./src/model/KitLenhador";
 import { KitMedico } from "./src/model/KitMedico";
+import { SobreviventeController } from "./src/controller/SobreviventeController";
 
 export function main() {
+
+    let sobreviventes: SobreviventeController = new SobreviventeController();
     let opcao: number;
 
     const kitlenhador: KitLenhador = new KitLenhador('João', 'Masculino', 1, 1, 1, 'Machado')
@@ -12,6 +15,9 @@ export function main() {
 
     const kitmedico: KitMedico = new KitMedico('Firmina', 'Feminino', 3, 1, 2, 'Bisturi')
     kitmedico.visualizar();
+
+    const tipoSobrevivente = ['Kit Medico', 'Kit Lenhador'];
+
     
 
     while (true) {
@@ -43,27 +49,51 @@ export function main() {
         switch (opcao) {
             case 1:
                 console.log("\n\nCriar Sobrevivente\n\n");
+                console.log("Digite o Nome do Sobrevivente: ");
 
+        let nome = readlinesync.question("");
+
+        console.log("Digite o Sexo do Sobrevivente (Masculino/Feminino): ");
+        let sexo = readlinesync.question("");
+
+        console.log("Digite a profissao do sobrevivente: ");
+        let tipo = readlinesync.keyInSelect(tipoSobrevivente, "Escolha a profissão do sobrevivente:", { cancel: false }) + 1;
+
+
+        console.log("\nDigite a quantidade de alimentos: ");
+        let alimentos = readlinesync.questionInt("");
+
+        console.log("\nDigite a quantidade de armas: ");
+        let armas = readlinesync.questionInt("");
+                
+                keyPress();
                 break;
+
             case 2:
                 console.log("\n\nListar todos os Sobreviventes\n\n");
-
+                sobreviventes.listarTodas();
+                
+                keyPress();
                 break;
             case 3:
                 console.log("\n\nConsultar Sobreviventes por Nome\n\n");
 
+                keyPress(); 
                 break;
             case 4:
                 console.log("\n\nAtualizar Inventário do Sobrevivente\n\n");
 
+                keyPress();
                 break;
             case 5:
                 console.log("\n\nApagar Sobrevivente\n\n");
 
+                keyPress();  
                 break;
             case 6:
                 console.log("\n\Sair\n\n");
-                
+
+                keyPress();
                 break;
             
              default:
@@ -86,4 +116,11 @@ console.log("https://github.com/wssant/Conta_bancaria_Generation");
 console.log("*****************************************************",colors.reset)
 
 }
+
+function keyPress(): void {
+    console.log(colors.reset, "");
+    console.log("\nPressione enter para continuar...");
+    readlinesync.prompt();
+}
+
 main();

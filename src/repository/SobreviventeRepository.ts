@@ -3,7 +3,7 @@
     export interface SobreviventeRepository {
         procurarPorNome(nome: string): void;
         listarTodas(): void;
-        cadastrar(nome: string): void;
+        cadastrar(sobreviventes: Sobrevivente): void;
         atualizar(nome: string): void;
         apagar(nome: string): void;
 
